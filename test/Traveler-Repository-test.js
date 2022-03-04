@@ -1,10 +1,12 @@
 import chai from "chai";
 const expect = chai.expect;
-import Traveler from "../src/Traveler";
+import Traveler from "../src/Traveler-Repository";
+import Trips from "./test-data-trips";
 
 describe("User", () => {
-  let userData1;
-  let userData2;
+  let user1Data; //no trips
+  let user2Data; //
+  let user3Data;
   let user1;
   let user2;
 
