@@ -1,5 +1,0 @@
-class Traveler {
-  constructor(userData) {
-
-  }
-}
