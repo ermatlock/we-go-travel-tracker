@@ -4,6 +4,8 @@ class Traveler {
     this.id = id;
     this.name = name;
     this.travelerType = travelerType;
+    this.userLogin = `traveler${this.id}`
+    this.password = "travel" 
     // this.trips = userTrips
     // this.tripRequests;
   }

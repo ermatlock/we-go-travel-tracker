@@ -8,7 +8,7 @@ import destinations from "./test-data-destinations"
 let traveler1
 let traveler2 //sad path
 let userTrips
-let userTrips2
+let userTrips2 //sad path
 describe("Traveler", () => {
   beforeEach(() => {
     userTrips = trips.trips.filter(trip => trip.userID === 2);
@@ -39,6 +39,17 @@ describe("Traveler", () => {
     expect(traveler1.travelerType).to.equal("thrill-seeker");
     expect(traveler2.travelerType).to.equal("not selected")
   });
+
+  it('should have a login name', () => {
+    expect(traveler1.userLogin).to.equal("traveler2");
+    expect(traveler2.userLogin).to.equal("traveler0")
+  })
+
+  it('should have a password', () => {
+    expect(traveler1.password).to.equal("travel");
+    expect(traveler2.password).to.equal("travel")
+  })
+
 
   });
 
