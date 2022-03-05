@@ -16,6 +16,12 @@ const travelers = {
       name: "Sibby Dawidowitsch",
       travelerType: "shopper",
     },
+    {
+      id: undefined,
+      name: undefined,
+      travelerType: undefined,
+    },
+    
   ],
 };
 
