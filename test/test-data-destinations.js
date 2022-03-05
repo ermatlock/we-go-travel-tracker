@@ -1,3 +1,4 @@
+// test data for class testing
 const destinations = {
   destinations: [
     {
