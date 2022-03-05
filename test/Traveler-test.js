@@ -12,8 +12,9 @@ let userTrips2 //sad path
 describe("Traveler", () => {
   beforeEach(() => {
     userTrips = trips.trips.filter(trip => trip.userID === 2);
-    traveler1 = new Traveler(travelers.travelers[1], userTrips);
-    traveler2 = new Traveler(travelers.travelers[3], userTrips);
+    userTrips2 = 
+    traveler1 = new Traveler(travelers.travelers[1]);
+    traveler2 = new Traveler(travelers.travelers[3]);
 
   });
 
@@ -49,6 +50,13 @@ describe("Traveler", () => {
     expect(traveler1.password).to.equal("travel");
     expect(traveler2.password).to.equal("travel")
   })
+
+  it('should start with travelers trips as an empty array', () => {
+    expect(traveler1.trips).to.eql([]);
+    expect(traveler2.trips).to.eql([]);
+  })
+
+
 
 
   });
