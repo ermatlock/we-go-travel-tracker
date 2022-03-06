@@ -59,7 +59,17 @@ describe("Traveler", () => {
         duration: 6,
         status: 'approved',
         suggestedActivities: []
-      }
+      },
+      {
+        id: 203,
+        userID: 2,
+        destinationID: 12,
+        travelers: 6,
+        date: "2022/03/05",
+        duration: 7,
+        status: "approved",
+        suggestedActivities: [],
+      },
     ]
     // userInput = new Trip(2, 1, 2, "2022/03/12", 4)
     today = dayjs().format('YYYY/MM/DD')
@@ -119,10 +129,10 @@ describe("Traveler", () => {
   });
 
 
-  it.only("should get a total of my annual spending", () => {
+  it("should get a total of my annual spending", () => {
     traveler1.getMyAnnualSpending(allTrips, allDestinations);
     traveler2.getMyAnnualSpending(allTrips, allDestinations);
-    expect(traveler1.trips).to.equal("29643.90");
+    expect(traveler1.trips).to.equal("19308.30");
     expect(traveler2.trips).to.equal(0);
 
 });
