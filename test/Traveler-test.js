@@ -4,12 +4,14 @@ import Traveler from "../src/Traveler";
 import trips from "./test-data-trips";
 import travelers from "./test-data-travelers";
 import destinations from "./test-data-destinations";
+import Trip from "../src/Trip";
 
 let traveler1;
 let traveler2;
 let allTrips;
 let user2Trips;
 let allDestinations
+let userInput
 
 describe("Traveler", () => {
   beforeEach(() => {
@@ -57,6 +59,9 @@ describe("Traveler", () => {
         suggestedActivities: []
       }
     ]
+    userInput = new Trip(2, 1, 2, 2022/03/12, 4)
+
+
     traveler1 = new Traveler(travelers.travelers[1]);
     traveler2 = new Traveler(travelers.travelers[3]);
   });
@@ -115,10 +120,11 @@ describe("Traveler", () => {
 });
 
 it("should take a trip request", () => {
-  traveler1.getMyAnnualSpending(allTrips, allDestinations);
-  traveler2.getMyAnnualSpending(allTrips, allDestinations);
-  expect(traveler1.trips).to.equal("29643.90");
-  expect(traveler2.trips).to.equal(0);
+
+  traveler1.makeTripRequest(1, 2, 2022/03/12, 4);
+  traveler2.makeTripRequest();
+  expect(traveler1.trips).to.equal();
+  expect(traveler2.trips).to.equal({});
 
 });
 
