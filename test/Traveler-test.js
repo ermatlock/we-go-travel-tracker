@@ -109,8 +109,16 @@ describe("Traveler", () => {
   it("should get a total of my annual spending", () => {
     traveler1.getMyAnnualSpending(allTrips, allDestinations);
     traveler2.getMyAnnualSpending(allTrips, allDestinations);
-    expect(traveler1.trips).to.equal(26949);
+    expect(traveler1.trips).to.equal("29643.90");
     expect(traveler2.trips).to.equal(0);
+
+});
+
+it("should take a trip request", () => {
+  traveler1.getMyAnnualSpending(allTrips, allDestinations);
+  traveler2.getMyAnnualSpending(allTrips, allDestinations);
+  expect(traveler1.trips).to.equal("29643.90");
+  expect(traveler2.trips).to.equal(0);
 
 });
 
