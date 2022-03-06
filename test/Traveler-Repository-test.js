@@ -8,8 +8,7 @@ import destinations from "./test-data-destinations"
 
 describe("TravelerRepo", () => {
   beforeEach(() => {
-    visitor = new Traveler(travelers[1]);
-    placesToVisit = new Destinations(destinations);
+    
   });
 
   it('should be a function', () => {
@@ -20,4 +19,4 @@ describe("TravelerRepo", () => {
     expect(visitor).to.be.instanceOf(TravelerRepo);
   });
   });
-});
+
