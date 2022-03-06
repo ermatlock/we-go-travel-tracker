@@ -1,38 +1,46 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
-// An example of how you tell webpack to use a CSS (SCSS) file
+/* ~~~~~~~~~~~~~~~~~~~~Imports~~~~~~~~~~~~~~~~~~~~~~~~~ */
 import './css/base.scss';
 import dayjs from 'dayjs'
 import domUpdates from './dom-updates'
 import Traveler from './Traveler'
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
+/* ~~~~~~~~~~~~~~~~~~Image Imports~~~~~~~~~~~~~~~~~~~~~ */
 import './images/turing-logo.png'
 import Traveler from './Traveler';
 
 
-console.log('This is the JavaScript entry file - your code begins here.');
+/* ~~~~~~~~~~~~~~~~~~Event Listeners~~~~~~~~~~~~~~~~~~~ */
+const tripsList = document.getElementById(tripsList)
+const annualSpent = document.getElementById(annualSpent)
+const welcome = document.getElementById(welcome) 
+const today = document.getElementById(today)
 
-let currentTraveler;
+/* ~~~~~~~~~~~~~~~~~Global Variables~~~~~~~~~~~~~~~~~~~ */
+let allTravelersData, travelerData, allTripsData, allDestinationsData, /* travelerTrips, newTripId, currentTrip, userList */;
+let currentDate = dayjs().format('dddd, MMM D, YYYY');
 
+/* ~~~~~~~~~~~~~~~~~~~~~Functions~~~~~~~~~~~~~~~~~~~~~~ */
 const createTraveler (id, travelers) => {
   currentTraveler = new Traveler(travelers.find(traveler => traveler.id === id)));
 }
 
-const loadPage = () => {
+const getAllData = () => {
   Promise.all([
     fetch("http://localhost:3001/api/v1/travelers/"),
     fetch("http://localhost:3001/api/v1/trips"),
     fetch("http://localhost:3001/api/v1/destinations"),
   ]).then((data) => {
-    const travelers = data[0];
-    const trips = data[1];
-    const destinations = data[2];
+    allTravelersData = data[0];
+    allTripsData = data[1];
+    allDestinationsData = data[2];
     const id = 2
     createTraveler(id, travelers)
   })
 }
+
+const loadPage = () => {
+  getAllData();
+};
 
 
 window.onload = loadPage;
