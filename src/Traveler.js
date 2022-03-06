@@ -1,6 +1,11 @@
 import Trip from "./Trip";
 import dayjs from 'dayjs'
 import isBetween from 'dayjs/plugin/isBetween'
+import isSameOrAfter from 'dayjs/plugin/isSameOrAfter'
+import isSameOrBefore from 'dayjs/plugin/isSameOrBefore'
+dayjs.extend(isBetween)
+dayjs.extend(isSameOrAfter)
+dayjs.extend(isSameOrBefore)
 
 class Traveler {
   constructor({
@@ -14,23 +19,23 @@ class Traveler {
     this.userLogin = `traveler${this.id}`;
     this.password = "travel";
     this.trips = [];
+    this.past = [];
+    this.present = [];
+    this.pending = [];
     this.todayDate = dayjs().format('YYYY/MM/DD')
   }
 
   getMyTrips({ trips }) {
     this.trips = trips.filter((trip) => trip.userID === this.id);
+    // this.past = this.trips.filter(trip => dayjs())
   }
 
   getMyAnnualSpending({ trips }, { destinations }) {
     const year = dayjs().subtract(1, 'year').format('YYYY/MM/DD')
-    // console.log(dayjs("2022/03/06"))
-    console.log(year)
-    // this.trips = trips.filter((trip) => trip.userID === this.id);
-    // console.log("filterd by user!!!", this.trips)
-    this.trips = trips.filter(trip => dayjs(trip.date).isBetween(year, this.todayDate, 'year'))
-    console.log(this.trips)
+    this.trips = trips.filter((trip) => trip.userID === this.id);
+    const annualTrips = this.trips.filter(trip => dayjs(trip.date).format('YYYY') === dayjs().format('YYYY'))
     let subTotal = destinations.reduce((sum, location) => {
-      this.trips.forEach((trip) => {
+      annualTrips.forEach((trip) => {
         if (trip.destinationID === location.id) {
           let travelersPerRoom = Math.ceil(trip.travelers / 2);
           let lodging =
@@ -47,13 +52,6 @@ class Traveler {
     let result = subTotal + (subTotal * .10)
     return result.toFixed(2)
   }
-
-  // makeTripRequest(destinationID, travelers, date, duration) {
-  //   this.tripRequest = new Trip(this.id, destinationID, travelers, date, duration)
-    
-  // }
-
-
 }
 
 export default Traveler;
