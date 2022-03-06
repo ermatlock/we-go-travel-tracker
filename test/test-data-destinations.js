@@ -64,6 +64,15 @@ const destinations = {
         "https://images.unsplash.com/photo-1535776142635-8fa180c46af7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2756&q=80",
     },
     {
+      id: 12,
+      destination: "Wellington, New Zealand",
+      estimatedLodgingCostPerDay: 150,
+      estimatedFlightCostPerPerson: 1200,
+      image:
+        "https://images.unsplash.com/photo-1442483221814-59f7d8b22739?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80",
+      alt: "overview of city with buildings, water and trees",
+    },
+    {
       id: 22,
       destination: "Rome, Italy",
       estimatedLodgingCostPerDay: 90,
