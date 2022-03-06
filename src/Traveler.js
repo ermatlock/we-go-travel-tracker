@@ -1,3 +1,5 @@
+import Trip from "./Trip";
+
 class Traveler {
   constructor({
     id = 0,
@@ -38,7 +40,8 @@ class Traveler {
     return result.toFixed(2)
   }
 
-  makeTripRequest({destinations}) {
+  makeTripRequest(destinationID, travelers, date, duration) {
+    this.tripRequest = new Trip(this.id, destinationID, travelers, date, duration)
     
   }
 
