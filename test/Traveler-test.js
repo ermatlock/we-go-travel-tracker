@@ -9,10 +9,12 @@ let traveler1;
 let traveler2;
 let allTrips;
 let user2Trips;
+let allDestinations
 
 describe("Traveler", () => {
   beforeEach(() => {
     allTrips = trips;
+    allDestinations = destinations;
     user2Trips = [
       {
         id: 89,
@@ -103,4 +105,13 @@ describe("Traveler", () => {
     expect(traveler1.trips).to.eql(user2Trips);
     expect(traveler2.trips).to.eql([]);
   });
+
+  it("should get a total of my annual spending", () => {
+    traveler1.getMyAnnualSpending(allTrips, allDestinations);
+    traveler2.getMyAnnualSpending(allTrips, allDestinations);
+    expect(traveler1.trips).to.equal(26949);
+    expect(traveler2.trips).to.equal(0);
+
 });
+
+})

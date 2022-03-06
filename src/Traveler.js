@@ -16,13 +16,24 @@ class Traveler {
     this.trips = trips.filter((trip) => trip.userID === this.id);
   }
 
-  // getMyAnnualSpending({trips}, {destinations}) {
-  //   this.trips = trips.filter((trip) => trip.userID === this.id);
-  //   this.trips.reduce((sum, trip) {
-  //     trip.
-  //   return sum
-  //   }, 0)  
-  // }
+  getMyAnnualSpending({trips}, {destinations}) {
+    this.trips = trips.filter((trip) => trip.userID === this.id);
+    // console.log(destinations)
+    // console.log(this.trips)
+
+    let result = destinations.reduce((sum, location) => {
+      this.trips.forEach(trip => {
+        if (trip.destinationID === location.id) {
+          let travelersPerRoom = Math.ceil(trip.travelers / 2)
+          let lodging = location.estimatedLodgingCostPerDay * travelersPerRoom * trip.duration
+          let flights = location.estimatedFlightCostPerPerson * 2 * trip.travelers
+          sum += (travelersPerRoom + lodging + flights)
+        }
+      });
+    return sum
+    }, 0);
+    return result
+  }
 }
 
 export default Traveler;
