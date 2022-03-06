@@ -6,6 +6,4 @@ class TravelerRepo {
   }
 }
 
-
-
 export default TravelerRepo
