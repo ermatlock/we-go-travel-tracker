@@ -1,4 +1,6 @@
 import Trip from "./Trip";
+import dayjs from 'dayjs'
+import isBetween from 'dayjs/plugin/isBetween'
 
 class Traveler {
   constructor({
@@ -12,7 +14,7 @@ class Traveler {
     this.userLogin = `traveler${this.id}`;
     this.password = "travel";
     this.trips = [];
-    this.tripRequest = {}
+    this.todayDate = dayjs().format('YYYY/MM/DD')
   }
 
   getMyTrips({ trips }) {
@@ -20,7 +22,13 @@ class Traveler {
   }
 
   getMyAnnualSpending({ trips }, { destinations }) {
-    this.trips = trips.filter((trip) => trip.userID === this.id);
+    const year = dayjs().subtract(1, 'year').format('YYYY/MM/DD')
+    // console.log(dayjs("2022/03/06"))
+    console.log(year)
+    // this.trips = trips.filter((trip) => trip.userID === this.id);
+    // console.log("filterd by user!!!", this.trips)
+    this.trips = trips.filter(trip => dayjs(trip.date).isBetween(year, this.todayDate, 'year'))
+    console.log(this.trips)
     let subTotal = destinations.reduce((sum, location) => {
       this.trips.forEach((trip) => {
         if (trip.destinationID === location.id) {
@@ -40,10 +48,10 @@ class Traveler {
     return result.toFixed(2)
   }
 
-  makeTripRequest(destinationID, travelers, date, duration) {
-    this.tripRequest = new Trip(this.id, destinationID, travelers, date, duration)
+  // makeTripRequest(destinationID, travelers, date, duration) {
+  //   this.tripRequest = new Trip(this.id, destinationID, travelers, date, duration)
     
-  }
+  // }
 
 
 }
