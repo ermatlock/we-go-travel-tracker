@@ -59,7 +59,7 @@ describe("Traveler", () => {
         suggestedActivities: []
       }
     ]
-    userInput = new Trip(2, 1, 2, 2022/03/12, 4)
+    // userInput = new Trip(2, 1, 2, "2022/03/12", 4)
 
 
     traveler1 = new Traveler(travelers.travelers[1]);
@@ -121,7 +121,7 @@ describe("Traveler", () => {
 
 it("should take a trip request", () => {
 
-  traveler1.makeTripRequest(1, 2, 2022/03/12, 4);
+  traveler1.makeTripRequest(1, 2, "2022/03/12", 4);
   traveler2.makeTripRequest();
   expect(traveler1.trips).to.equal();
   expect(traveler2.trips).to.equal({});
