@@ -1,4 +1,4 @@
-class TravelerRepo {
+/* class TravelerRepo {
   constructor(travelers, trips, destinations) {
     this.travelers = travelers
     this.trips = trips
@@ -7,3 +7,4 @@ class TravelerRepo {
 }
 
 export default TravelerRepo
+ */

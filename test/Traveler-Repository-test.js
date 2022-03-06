@@ -1,4 +1,4 @@
-import chai from "chai";
+/* import chai from "chai";
 const expect = chai.expect;
 import TravelerRepository from "../src/Traveler-Repo";
 import trips from "./test-data-trips";
@@ -20,3 +20,4 @@ describe("TravelerRepo", () => {
   });
   });
 
+ */
