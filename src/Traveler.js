@@ -19,9 +19,9 @@ class Traveler {
     this.userLogin = `traveler${this.id}`;
     this.password = "travel";
     this.trips = [];
-    this.past = [];
-    this.present = [];
-    this.pending = [];
+    // this.past = [];
+    // this.present = [];
+    // this.pending = [];
     this.todayDate = dayjs().format('YYYY/MM/DD')
   }
 
