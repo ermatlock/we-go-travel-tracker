@@ -71,6 +71,16 @@ const trips = {
       status: "approved",
       suggestedActivities: [],
     },
+    {
+      id: 203,
+      userID: 2,
+      destinationID: 12,
+      travelers: 6,
+      date: "2022/03/05",
+      duration: 7,
+      status: "approved",
+      suggestedActivities: [],
+    },
   ],
 };
-export default trips
+export default trips;
