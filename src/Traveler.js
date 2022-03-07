@@ -9,9 +9,9 @@ dayjs.extend(isSameOrBefore);
 
 class Traveler {
   constructor({
-    id = 0,
-    name = "name not submitted",
-    travelerType = "not selected",
+    id,
+    name,
+    travelerType
   }) {
     this.id = id;
     this.name = name;
@@ -19,9 +19,6 @@ class Traveler {
     this.userLogin = `traveler${this.id}`;
     this.password = "travel";
     this.trips = [];
-    // this.past = [];
-    // this.present = [];
-    // this.pending = [];
     this.todayDate = dayjs().format("YYYY/MM/DD");
   }
 
@@ -58,6 +55,12 @@ class Traveler {
     let result = subTotal + subTotal * 0.1;
     return result;
   }
+
+  createTripRequest(date, duration, numTravelers, destination) {
+    const trip = new Trip(id, destinationID, travelers, date, duration)
+    return trip
+  }
 }
+
 
 export default Traveler;
