@@ -28,6 +28,11 @@ const domUpdates = {
     today.innerText = currentDate
   }
   
+  // displayTrips(currentTraveler, allTripsData, allDestinationsData) {
+  //   tripsList.innerHTML = ""
+  //   tripsList.innerHTML = `
+  //   `
+  // }
 
   // updateTravelerScr() {
   //   const result = currentTraveler.getMyAnnualSpending(allTripsData,
