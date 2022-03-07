@@ -1,28 +1,35 @@
 /* ~~~~~~~~~~~~~~~~~~~~Imports~~~~~~~~~~~~~~~~~~~~~~~~~ */
-import './css/base.scss';
-import dayjs from 'dayjs'
-import domUpdates from './dom-updates'
-import Traveler from './Traveler'
+import "./css/base.scss";
+import {fetch, post} from "./api-calls"
+import dayjs from "dayjs";
+import domUpdates from "./dom-updates";
+import Traveler from "./Traveler";
 
 /* ~~~~~~~~~~~~~~~~~~Image Imports~~~~~~~~~~~~~~~~~~~~~ */
-import './images/turing-logo.png'
-import Traveler from './Traveler';
-
-
-/* ~~~~~~~~~~~~~~~~~~Event Listeners~~~~~~~~~~~~~~~~~~~ */
-const tripsList = document.getElementById(tripsList)
-const annualSpent = document.getElementById(annualSpent)
-const welcome = document.getElementById(welcome) 
-const today = document.getElementById(today)
+import "./images/turing-logo.png";
 
 /* ~~~~~~~~~~~~~~~~~Global Variables~~~~~~~~~~~~~~~~~~~ */
-let allTravelersData, travelerData, allTripsData, allDestinationsData, /* travelerTrips, newTripId, currentTrip, userList */;
-let currentDate = dayjs().format('dddd, MMM D, YYYY');
+let allTravelersData,
+allTripsData,
+allDestinationsData,
+currentTraveler,
+travelerData;
+  /* travelerTrips, newTripId, currentTrip, userList */
+let currentDate = dayjs().format("dddd, MMM D, YYYY");
+
+/* ~~~~~~~~~~~~~~~~~~Event Listeners~~~~~~~~~~~~~~~~~~~ */
+const welcome = document.getElementById("welcome");
+const today = document.getElementById("today");
+const annualSpent = document.getElementById("annualSpent");
+const tripsList = document.getElementById("tripsList");
+const errorMessage = document.getElementById("errorMessage");
 
 /* ~~~~~~~~~~~~~~~~~~~~~Functions~~~~~~~~~~~~~~~~~~~~~~ */
-const createTraveler (id, travelers) => {
-  currentTraveler = new Traveler(travelers.find(traveler => traveler.id === id)));
-}
+const createTraveler = (id) => {
+  currentTraveler = new Traveler(
+    allTravelersData.find((traveler) => traveler.id === id)
+  );
+};
 
 const getAllData = () => {
   Promise.all([
@@ -30,17 +37,20 @@ const getAllData = () => {
     fetch("http://localhost:3001/api/v1/trips"),
     fetch("http://localhost:3001/api/v1/destinations"),
   ]).then((data) => {
-    allTravelersData = data[0];
-    allTripsData = data[1];
-    allDestinationsData = data[2];
-    const id = 2
-    createTraveler(id, travelers)
-  })
-}
+    allTravelersData = data[0].travelers;
+    console.log(allTravelersData)
+    allTripsData = data[1].trips;
+    console.log(allTripsData)
+    allDestinationsData = data[2].destinations;
+    console.log(allDestinationsData)
+    const id = 2;
+    createTraveler(id);
+    greetUser(currentTraveler)
+  });
+};
 
 const loadPage = () => {
   getAllData();
 };
-
 
 window.onload = loadPage;
