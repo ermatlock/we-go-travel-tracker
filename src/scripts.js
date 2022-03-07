@@ -17,6 +17,8 @@ let allTravelersData,
 /* travelerTrips, newTripId, currentTrip, userList */
 let currentDate = dayjs().format("dddd, MMM D, YYYY");
 
+/*~~~~~~~~~~~~~~~EVENT LISTENERS~~~~~~~~~~~~~~~~~*/
+
 
 /* ~~~~~~~~~~~~~~~~~~~~~Functions~~~~~~~~~~~~~~~~~~~~~~ */
 const createTraveler = (id) => {
@@ -32,9 +34,9 @@ const getRandomIndex = (array) => {
 
 const getAllData = () => {
   Promise.all([
-    getData("http://localhost:3001/api/v1/travelers/"),
-    getData("http://localhost:3001/api/v1/trips"),
-    getData("http://localhost:3001/api/v1/destinations")
+    getData("travelers"),
+    getData("trips"),
+    getData("destinations")
   ]).then((data) => {
     allTravelersData = data[0].travelers;
     allTripsData = data[1].trips;
@@ -48,6 +50,11 @@ const getAllData = () => {
 
   });
 };
+
+// const submitTrip = (currentUser) => {
+  
+//   {id: <number>, userID: <number>, destinationID: <number>, travelers: <number>, date: <string 'YYYY/MM/DD'>, duration: <number>, status: <string 'approved' or 'pending'>, suggestedActivities: <array of strings>}
+// }
 
 const loadPage = () => {
   getAllData();
