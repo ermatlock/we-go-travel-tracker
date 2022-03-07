@@ -18,11 +18,11 @@ let allTravelersData,
 let currentDate = dayjs().format("dddd, MMM D, YYYY");
 
 /* ~~~~~~~~~~~~~~~~~~Event Listeners~~~~~~~~~~~~~~~~~~~ */
-const welcome = document.getElementById("welcome");
-const today = document.getElementById("today");
-const annualSpent = document.getElementById("annualSpent");
-const tripsList = document.getElementById("tripsList");
-const errorMessage = document.getElementById("errorMessage");
+// const welcome = document.getElementById("welcome");
+// const today = document.getElementById("today");
+// const annualSpent = document.getElementById("annualSpent");
+// const tripsList = document.getElementById("tripsList");
+// const errorMessage = document.getElementById("errorMessage");
 
 /* ~~~~~~~~~~~~~~~~~~~~~Functions~~~~~~~~~~~~~~~~~~~~~~ */
 const createTraveler = (id) => {
@@ -30,6 +30,11 @@ const createTraveler = (id) => {
     allTravelersData.find((traveler) => traveler.id === id)
   );
 };
+
+const getRandomIndex = (array) => {
+  return Math.floor(Math.random() * array.length);
+};
+
 
 const getAllData = () => {
   Promise.all([
@@ -43,12 +48,14 @@ const getAllData = () => {
     console.log(allTripsData);
     allDestinationsData = data[2].destinations;
     console.log(allDestinationsData);
-    const id = 2;
+    const id = allTravelersData[getRandomIndex(allTravelersData)].id
     createTraveler(id);
-    // currentTraveler.getMyTrips(allTripsData)
     console.log(currentTraveler)
+    currentTraveler.getMyTrips(allTripsData)
     domUpdates.greetUser(currentTraveler);
-    domUpdates.updateTravelerScr()
+    domUpdates.updateTravelerScr(currentTraveler, allTripsData, allDestinationsData)
+    domUpdates.displayTrips(currentTraveler, allDestinationsData)
+
   });
 };
 
