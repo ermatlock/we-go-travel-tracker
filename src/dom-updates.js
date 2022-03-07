@@ -60,8 +60,11 @@ const domUpdates = {
       allTripsData,
       allDestinationsData
     );
-    console.log(result);
-    annualSpent.innerText = `You spent ${result} this year.`;
+    const formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    });
+    annualSpent.innerText = `You spent ${formatter.format(result)} this year.`;
   },
 };
 
