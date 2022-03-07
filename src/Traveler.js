@@ -30,12 +30,12 @@ class Traveler {
     return firstName;
   }
 
-  getMyTrips({ trips }) {
+  getMyTrips(trips) {
     this.trips = trips.filter((trip) => trip.userID === this.id);
     // this.past = this.trips.filter(trip => dayjs())
   }
 
-  getMyAnnualSpending({ trips }, { destinations }) {
+  getMyAnnualSpending(trips, destinations) {
     const year = dayjs().subtract(1, 'year').format('YYYY/MM/DD')
     this.trips = trips.filter((trip) => trip.userID === this.id);
     const annualTrips = this.trips.filter(trip => dayjs(trip.date).format('YYYY') === dayjs().format('YYYY'))
