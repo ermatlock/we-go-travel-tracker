@@ -30,9 +30,8 @@ class Traveler {
     return firstName;
   }
 
-  getMyTrips(trips) {
+  getMyTrips(trips, destinations) {
     this.trips = trips.filter((trip) => trip.userID === this.id);
-    // this.past = this.trips.filter(trip => dayjs())
   }
 
   getMyAnnualSpending(trips, destinations) {
