@@ -21,9 +21,20 @@
     </div>
     <header>
       <h1 id="welcome"></h1>
-    <h1 id="today"></h1>
+      <h1 id="today"></h1>
+      <h2 id="annualSpent"></h2>
     </header>
-     <h2 id="annualSpent"></h2>
+    <section class="form-section">
+      <form name="trip" class="trip-form" aria-hidden="true" id="tripForm">
+          <label for="date">Date</label>
+          <input type="date" name="date">
+          <label for="duration">How long is your journey?</label>
+          <input type="number" name="duration" min="0">
+          <label for="travelers">How many travelers?</label>
+          <input type="number" min="0" name="travelers">
+          <button class="button-75" role="button">Let's Go!</button>
+      </form>
+    </section>
     <section class="trips-section" id="tripsList">
       
     </section>
