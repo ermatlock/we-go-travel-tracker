@@ -23,10 +23,16 @@ const domUpdates = {
     welcome.innerText = `Welcome, ${currentTraveler.getFirstName()}`;
 
   },
+
+  displayTodayDate(currentDate) {
+    today.innerText = currentDate
+  }
   
 
-  // updateTravelerScr(currentTraveler) {
-  //   currentTraveler.
+  // updateTravelerScr() {
+  //   const result = currentTraveler.getMyAnnualSpending(allTripsData,
+  //     allDestinationsData)
+  //     annualSpent.innerText = `You spent ${result} this year.`
   // }
 };
 
