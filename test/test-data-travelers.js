@@ -1,6 +1,5 @@
 // test data for class testing
-const travelers = {
-  travelers: [
+const travelers = [
     {
       id: 1,
       name: "Ham Leadbeater",
@@ -23,6 +22,6 @@ const travelers = {
     },
     
   ],
-};
+
 
 export default travelers

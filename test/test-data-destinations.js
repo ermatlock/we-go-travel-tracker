@@ -1,6 +1,5 @@
 // test data for class testing
-const destinations = {
-  destinations: [
+const destinations = [
     {
       id: 1,
       destination: "Lima, Peru",
@@ -101,5 +100,5 @@ const destinations = {
       alt: "aerial photography of rocky mountain under cloudy sky",
     },
   ],
-};
+
 export default destinations

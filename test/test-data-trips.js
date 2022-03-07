@@ -1,6 +1,5 @@
 // test data for class testing
-const trips = {
-  trips: [
+const trips = [
     {
       id: 1,
       userID: 44,
@@ -82,5 +81,5 @@ const trips = {
       suggestedActivities: [],
     },
   ],
-};
+
 export default trips;
