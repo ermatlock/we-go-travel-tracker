@@ -11,7 +11,7 @@ const getData = (address) => {
     });
 };
 
-const post = (address, inputData) => {
+const postData = (address, inputData) => {
   return fetch(address, {
     method: "POST",
     body: JSON.stringify(inputData),
@@ -24,4 +24,4 @@ const post = (address, inputData) => {
   });
 };
 
-export {getData, post}
+export {getData, postData}
