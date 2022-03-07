@@ -7,6 +7,7 @@ const today = document.getElementById("today");
 const annualSpent = document.getElementById("annualSpent");
 const tripsList = document.getElementById("tripsList");
 
+
 /*~~~~~~~~~~~~~~~EVENT LISTENERS~~~~~~~~~~~~~~~~~*/
 span.onclick = function () {
   modal.style.display = "none";
@@ -66,6 +67,13 @@ const domUpdates = {
     });
     annualSpent.innerText = `You spent ${formatter.format(result)} this year.`;
   },
+
+  populateOptions(allDestinationsData) {
+    inputDestination.innerHTML = `<option value="" disabled selected>--Select a destination--</option>`
+    allDestinationsData.forEach(location => {
+      inputDestination.innerHTML += `<option value="${location.id}" >${location.destination}</option>`
+    })
+  }
 };
 
 export default domUpdates;
