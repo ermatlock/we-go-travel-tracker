@@ -1,5 +1,3 @@
-import domUpdates from "./dom-updates";
-
 const getData = (address) => {
   return fetch(address)
     .then((response) => response.json())
