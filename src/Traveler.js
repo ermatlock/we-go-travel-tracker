@@ -25,6 +25,11 @@ class Traveler {
     this.todayDate = dayjs().format('YYYY/MM/DD')
   }
 
+  getFirstName() {
+    const firstName = this.name.split(" ")[0];
+    return firstName;
+  }
+
   getMyTrips({ trips }) {
     this.trips = trips.filter((trip) => trip.userID === this.id);
     // this.past = this.trips.filter(trip => dayjs())
