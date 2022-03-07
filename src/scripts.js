@@ -17,12 +17,6 @@ let allTravelersData,
 /* travelerTrips, newTripId, currentTrip, userList */
 let currentDate = dayjs().format("dddd, MMM D, YYYY");
 
-/* ~~~~~~~~~~~~~~~~~~Event Listeners~~~~~~~~~~~~~~~~~~~ */
-// const welcome = document.getElementById("welcome");
-// const today = document.getElementById("today");
-// const annualSpent = document.getElementById("annualSpent");
-// const tripsList = document.getElementById("tripsList");
-// const errorMessage = document.getElementById("errorMessage");
 
 /* ~~~~~~~~~~~~~~~~~~~~~Functions~~~~~~~~~~~~~~~~~~~~~~ */
 const createTraveler = (id) => {
@@ -43,14 +37,10 @@ const getAllData = () => {
     getData("http://localhost:3001/api/v1/destinations")
   ]).then((data) => {
     allTravelersData = data[0].travelers;
-    console.log(allTravelersData);
     allTripsData = data[1].trips;
-    console.log(allTripsData);
     allDestinationsData = data[2].destinations;
-    console.log(allDestinationsData);
     const id = allTravelersData[getRandomIndex(allTravelersData)].id
     createTraveler(id);
-    console.log(currentTraveler)
     currentTraveler.getMyTrips(allTripsData)
     domUpdates.greetUser(currentTraveler);
     domUpdates.updateTravelerScr(currentTraveler, allTripsData, allDestinationsData)
