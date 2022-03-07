@@ -8,6 +8,9 @@ class Trip {
     this.duration = duration || 0
     this.status = 'pending'
     this.suggestedActivities = []
+    // this.estimatedLodgingCostPerDay = 
+    // this.estimatedFlightCostPerPerson
+    // this.destination = 
   }
 }
 
