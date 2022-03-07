@@ -54,7 +54,7 @@ class Traveler {
       return sum  
     }, 0);
     let result = subTotal + (subTotal * .10)
-    return result.toFixed(2)
+    return result
   }
 }
 
