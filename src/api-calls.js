@@ -1,6 +1,6 @@
-import domUpdates from "./domUpdates";
+import domUpdates from "./dom-updates";
 
-const fetch = (address) => {
+const getData = (address) => {
   return fetch(address)
     .then((response) => response.json())
     .catch((error) => {
@@ -24,4 +24,4 @@ const post = (address, inputData) => {
   });
 };
 
-export {fetch, post}
+export {getData, post}
