@@ -128,9 +128,9 @@ label {
 }
 
 .trips-section {
-  /* display: flex; */
+  // display: flex;
   flex-wrap: wrap;
-  /* margin-left: 1%; */
+  // margin-left: 1%;
   display: grid;
   grid-template-columns: repeat(4, 24vw [col-start]);
   grid-template-rows: repeat(1, 66vh [row-start]);
@@ -260,13 +260,13 @@ label {
   text-transform: uppercase;
 }
 .tag-teal {
-  background-color: #47bcd4;
+  background-color: #007c8a;
 }
 .tag-purple {
   background-color: #5e76bf;
 }
 .tag-pink {
-  background-color: #cd5b9f;
+  background-color: #d71499;
 }
 
 .card-body p {
@@ -295,58 +295,34 @@ label {
 
 
 /* BUTTON */
-.button-75 {
-  background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
+
+/* CSS */
+.button-62 {
+  background: linear-gradient(to bottom right, #ef4261, #fe0be1);
   border: 0;
   border-radius: 50px;
-  box-sizing: border-box;
-  color: #fff;
+  color: #FFFFFF;
   cursor: pointer;
-  display: flex;
-  font-family: "Codec cold", sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  height: 100%;
-  letter-spacing: 0.4px;
-  line-height: 1;
-  max-width: 100%;
-  padding-left: 2%;
-  padding-right: 2%;
-  padding-top: 3px;
+  display: inline-block;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 2.5;
+  outline: transparent;
+  padding: 0px 1rem;
+  text-align: center;
   text-decoration: none;
-  text-transform: uppercase;
-  /* user-select: none; */
-  /* -webkit-user-select: none; */
-  /* touch-action: manipulation; */
-  align-items: center;
-  justify-content: center;
+  transition: box-shadow 0.2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
 }
 
-
-.button-75:active {
-  outline: 0;
+.button-62:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
 }
 
-.button-75:hover {
-  outline: 0;
-}
-
-.button-75 span {
-  transition: all 200ms;
-}
-
-.button-75:hover span {
-  transform: scale(.9);
-  opacity: .75;
-}
-
-@media screen and (max-width: 991px) {
-  .button-75 {
-    font-size: 15px;
-    height: 50px;
-  }
-
-  .button-75 span {
-    line-height: 50px;
-  }
+.button-62:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(239, 71, 101, 0.5), .125rem .125rem 1rem rgba(255, 154, 90, 0.5);
 }
