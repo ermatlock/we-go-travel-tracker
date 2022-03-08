@@ -33,15 +33,14 @@
           <label for="travelers">How many travelers?</label>
           <input type="number" min="0" name="travelers" id="inputTravelers">
           <select name="destination" id="inputDestination">
-            
-
+              <!-- populated by populateOptions() -->
           </select>
-          <button class="button-75" role="button" id="submitTripBtn">Let's Go!</button>
-
-      </form>
+          
+        </form>
+        <button class="button-75" type="submit" id="submitTripBtn">Let's Go!</button>
     </section>
     <section class="trips-section" id="tripsList">
-      
+      <!-- populated by displayTrips() -->
     </section>
 
   </main>
