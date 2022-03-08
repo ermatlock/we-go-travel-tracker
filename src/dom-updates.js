@@ -40,7 +40,8 @@ const domUpdates = {
 
   displayTrips(currentTraveler, allDestinationsData) {
     tripsList.innerHTML = "";
-    currentTraveler.trips.forEach((trip) => {
+    const sorted = currentTraveler.trips.sort((a, b) => new Date(b.date) - new Date(a.date))
+    sorted.forEach((trip) => {
       allDestinationsData.forEach((location) => {
         if (trip.destinationID === location.id) {
           let color = trip.status === "approved" ? "teal" : "pink";
