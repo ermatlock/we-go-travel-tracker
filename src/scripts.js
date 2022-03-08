@@ -52,6 +52,7 @@ const getAllData = () => {
 };
 
 const addNewTrip = (newTrip) => {
+  postData("trips", newTrip)
   currentTraveler.trips.push(newTrip)
   console.log(currentTraveler)
   domUpdates.updateTravelerScr(currentTraveler, allTripsData, allDestinationsData)
@@ -70,14 +71,8 @@ const submitTrip = (e) => {
     status: 'pending',
     suggestedActivities: []
   }
-  console.log(newTrip)
-  // currentTraveler.addNewTrip(newTrip)
   addNewTrip(newTrip)
-  postData("trips", newTrip)
-  // domUpdates.updateTravelerScr(currentTraveler, allTripsData, allDestinationsData)
-  // domUpdates.displayTrips(currentTraveler, allDestinationsData)
-
-  
+  domUpdates.clearForm(allDestinationsData)
 }
 
 const loadPage = () => {
@@ -85,6 +80,7 @@ const loadPage = () => {
   domUpdates.displayTodayDate(currentDate)
 };
 
+/* ~~~~~~~~~~~~~~~MICROMODAL~~~~~~~~~~~~~~~~~~ */
 document.addEventListener("DOMContentLoaded", function() {
   try {
     MicroModal.init({
@@ -92,11 +88,6 @@ document.addEventListener("DOMContentLoaded", function() {
       onShow: function(modal) {
         console.log("micromodal open");
         addModalContentHeight('short');
-        /**************************
-          For full screen scrolling modal, 
-          uncomment line below & comment line above
-         **************************/
-        //addModalContentHeight('tall');
       },
       onClose: function(modal) {
         console.log("micromodal close");
@@ -158,7 +149,7 @@ function addModalContentHeight(type) {
   
 }
 
-
+/*~~~~~~~~~~~~~~~INITIAL LOADER~~~~~~~~~~~~~~~~~*/
 window.onload = loadPage;
 
 /*~~~~~~~~~~~~~~~EVENT LISTENERS~~~~~~~~~~~~~~~~~*/
