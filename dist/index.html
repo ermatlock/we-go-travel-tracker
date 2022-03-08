@@ -11,7 +11,7 @@
 </head>
 <body>
   <main>
-    <div id="myModal" class="modal">
+    <div id="myModal" tabindex="0" class="modal">
       <div class="modal-content" role="dialog" aria-modal=true>
         <p id="errorMessage">
           Sorry, we are having trouble posting your data
@@ -19,7 +19,7 @@
         <span class="close" role="button">&times;</span>
       </div>
     </div>
-    <header>
+    <header tabindex="0">
       <h1 id="welcome"></h1>
       <h1 id="today"></h1>
       <h2 id="annualSpent"></h2>
@@ -30,18 +30,19 @@
     <div class="container">
     <section class="form-section">
         <form name="trip" class="trip-form" id="tripForm">
-            <label for="date">Date</label>
+            <label for="inputDate">Date</label>
             <input class="date" type="date" name="date" id="inputDate">
-            <label for="number-days">How long is your journey?</label>
+            <label for="inputDuration">How long is your journey?</label>
             <input class="number" type="number" value="1" min="1" name="number-days" id="inputDuration">
-            <label for="travelers">How many travelers?</label>
-            <input class="number-travelers" type="number" value="1" min="1" name="number-travelers" id="inputTravelers">
+            <label for="inputTravelers">How many travelers?</label>
+            <input class="number" type="number" value="1" min="1" name="number-travelers" id="inputTravelers">
+            <label class="hidden" for="inputDestination">What is your destination?</label>
             <select class="dest" name="destination" id="inputDestination">
                 <!-- populated by populateOptions() -->
             </select>
             
           </form>
-          <button class="button-75" type="submit" id="submitTripBtn">Let's Go!</button>
+          <button class="button-62" role="button" type="submit" id="submitTripBtn">Let's Go!</button>
 
         </section>
       </div>
