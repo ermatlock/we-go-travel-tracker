@@ -75,7 +75,7 @@ label {
   width: 4%;
 }
 .dest {
-  width: 25%;
+  width: 22vw;
   margin-left: 1%;
 }
 
@@ -230,6 +230,10 @@ label {
   display: flex;
   text-decoration: none;
   cursor: pointer;
+}
+
+modal-button-row {
+  display: flex;
 }
 
 /* ~~~~~~~~~~~~CARD~~~~~~~~~~~~ */
