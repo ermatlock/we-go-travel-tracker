@@ -171,11 +171,11 @@ label {
   display: none;
   /* Hidden by default */
   position: fixed;
-  /* Stay in place */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 1;
   /* Sit on top */
-  left: 0;
-  top: 0;
   width: 100%;
   /* Full width */
   height: 100%;
@@ -205,6 +205,18 @@ label {
   align-items: center;
 }
 
+.new-trip {
+  display: flex;
+  width: min-content;
+  border-radius: 19px;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  font-size: larger;
+  font-weight: bolder;
+}
 /* The Close Button */
 .close {
   color: rgb(0, 0, 0);
@@ -231,8 +243,17 @@ label {
   transition: transform .3s; /* Animation */
 }
 
+
 .card:hover {
   transform: scale(1.2);
+}
+.card-no-hover {
+  margin: 11px;
+  background-color: $tsp-white;
+  border-radius: 13px;
+  box-shadow: $drop-shadow;
+  overflow: hidden;
+  width: 21vw;
 }
 
 .card-header img {
@@ -247,7 +268,6 @@ label {
   align-items: center;
   padding: 6%;
   min-height: 32vh;
-  font-size: 1em;
 }
 
 .tag {
@@ -270,8 +290,8 @@ label {
 }
 
 .card-body p {
-  font-size: 13px;
-  margin: 0 0 10px;
+  font-size: initial;
+  font-weight: 700;
 }
 .user {
   display: flex;
@@ -290,6 +310,11 @@ label {
 .user-info small {
   color: #545d7a;
 }
+
+// .font-med {
+//   font-size: large;
+//   font-weight: 500;
+// }
 
 
 
