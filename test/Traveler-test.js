@@ -154,5 +154,6 @@ describe("Traveler", () => {
     const total2 = traveler2.getNewTrip(newTrip, allDestinations);
     expect(total1).to.equal(4754.2);
     expect(total2).to.equal(4754.2);
+    expect(traveler1.pending).to.eql([newTrip])
   });
 });
