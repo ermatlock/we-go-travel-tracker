@@ -13,12 +13,13 @@ class Traveler {
     name,
     travelerType
   }) {
-    this.id = id;
-    this.name = name;
-    this.travelerType = travelerType;
+    this.id = id || 0;
+    this.name = name || "not-submitted";
+    this.travelerType = travelerType || "not-submitted";
     this.userLogin = `traveler${this.id}`;
     this.password = "travel";
     this.trips = [];
+    this.pending = [];
     this.todayDate = dayjs().format("YYYY/MM/DD");
   }
 
@@ -27,13 +28,12 @@ class Traveler {
     return firstName;
   }
 
-  getMyTrips(trips, destinations) {
+  getMyTrips(trips) {
     this.trips = trips.filter((trip) => trip.userID === this.id);
   }
 
   getMyAnnualSpending(trips, destinations) {
     const year = dayjs().subtract(1, "year").format("YYYY/MM/DD");
-    // this.trips = trips.filter((trip) => trip.userID === this.id);
     const annualTrips = this.trips.filter(
       (trip) => dayjs(trip.date).format("YYYY") === dayjs().format("YYYY")
     );
@@ -56,14 +56,26 @@ class Traveler {
     return result;
   }
 
-  // createTripRequest(date, duration, numTravelers, destination) {
-  //   const trip = new Trip(id, destinationID, travelers, date, duration)
-  //   return trip
-  // }
-  addNewtrip(newTrip) {
-    this.trips.push(newTrip)
+  getNewTrip(newTrip, destinations) {
+    this.pending.push(newTrip)
+    let subTotal = destinations.reduce((sum, location) => {
+      if (newTrip.destinationID === location.id) {
+        let travelersPerRoom = Math.ceil(newTrip.travelers / 2);
+        let lodging =
+        location.estimatedLodgingCostPerDay *
+        travelersPerRoom *
+          newTrip.duration;
+        let flights =
+          location.estimatedFlightCostPerPerson * 2 * newTrip.travelers;
+        sum += travelersPerRoom + lodging + flights;
+        }
 
+      return sum;
+    }, 0);
+    let result = subTotal + subTotal * 0.1;
+    return result;
   }
+
 }
 
 
