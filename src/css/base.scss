@@ -55,21 +55,26 @@ input {
 .form-section {
   width: 100%;
   display: flex;
-  justify-content: center;
-}
-
-.trip-form {
-  display: flex;
   border-radius: 50px;
   background-color: #ffffffd1;
   width: 96%;
   flex-direction: row;
   flex-wrap: nowrap;
-  align-content: center;
   align-items: center;
-  margin: 5px;
-  padding: 5px;
-  justify-content: center;
+}
+
+.trip-form {
+  // display: flex; 
+  // border-radius: 50px; 
+  // background-color: #ffffffd1; 
+  // width: 96%;
+  // flex-direction: row; 
+  // flex-wrap: nowrap; 
+  // align-content: center; 
+  // align-items: center; 
+  // margin: 5px;
+  // padding: 5px; 
+  // justify-content: center;
 }
 
 .trips-section {
