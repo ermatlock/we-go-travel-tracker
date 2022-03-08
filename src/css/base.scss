@@ -74,13 +74,13 @@ label {
 .form-section {
   display: flex;
   border-radius: 30px;
-  background-color: #ffffffd1;
+  background-color: $tsp-white;
   width: 96vw;
   height: 7vh;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  box-shadow: 0 2px 20px rgb(0 0 0 / 20%);
+  box-shadow: $drop-shadow;
   
 }
 
@@ -197,9 +197,9 @@ label {
 /* ~~~~~~~~~~~~CARD~~~~~~~~~~~~ */
 .card {
   margin: 11px;
-  background-color: #ffffffa8;
+  background-color: $tsp-white;
   border-radius: 13px;
-  box-shadow: 0 2px 20px rgb(0 0 0 / 20%);
+  box-shadow: $drop-shadow;
   overflow: hidden;
   width: 21vw;
   transition: transform .3s; /* Animation */
