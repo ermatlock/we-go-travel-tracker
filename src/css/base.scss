@@ -235,9 +235,9 @@ input {
   padding-top: 3px;
   text-decoration: none;
   text-transform: uppercase;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+  /* user-select: none; */
+  /* -webkit-user-select: none; */
+  /* touch-action: manipulation; */
   align-items: center;
   justify-content: center;
 }
