@@ -21,31 +21,41 @@ const inputDate = document.getElementById("inputDate");
 const inputDuration = document.getElementById("inputDuration");
 const inputTravelers = document.getElementById("inputTravelers");
 const inputDestination = document.getElementById("inputDestination");
-const submitTripBtn = document.getElementById("submitTripBtn");
 const letsGoBtn = document.getElementById("letsGoBtn");
+const submitTripBtn = document.getElementById("submitTripBtn");
+const cancelBtn = document.getElementById("cancelBtn")
 
 /*~~~~~~~~~~~~~~~EVENT LISTENERS~~~~~~~~~~~~~~~~~*/
 span.onclick = function () {
-  errorModal.style.display = "none";
+  domUpdates.hide(errorModal)
 };
 window.onclick = function (event) {
   if (event.target == errorModal) {
-    errorModal.style.display = "none";
+    domUpdates.hide(errorModal)
   }
 };
 
 const domUpdates = {
-  show(element) {
-    element.classList.remove("hidden");
+
+  display(element) {
+    element.style.display = "block";
   },
 
   hide(element) {
-    element.classList.add("hidden");
+    element.style.display = "none"
   },
+
+  // show(element) {
+  //   element.classList.remove("hidden");
+  // },
+
+  // hide(element) {
+  //   element.classList.add("hidden");
+  // },
 
   showError(message) {
     errorMessage.innerText = message;
-    modal.style.display = "block";
+    errorModal.style.display = "block";
   },
 
   greetUser(currentTraveler) {
@@ -112,7 +122,7 @@ const domUpdates = {
 
   showNewTripRequest(trip, allDestinationsData) {
     const cost = currentTraveler.getNewTrip(trip, allDestinationsData);
-    newTripModal.style.display = "block";
+    this.display(newTripModal);
     allDestinationsData.forEach((location) => {
       if (trip.destinationID === location.id) {
         let color = trip.status === "approved" ? "teal" : "pink";
