@@ -80,6 +80,13 @@ const domUpdates = {
     allDestinationsData.forEach(location => {
       inputDestination.innerHTML += `<option value="${location.id}" >${location.destination}</option>`
     })
+  },
+
+  clearForm(allDestinationsData) {
+    inputTravelers.value = '1'
+    inputDuration.value = '1'
+    inputDate.value = 'mm/dd/yyyy'
+    this.populateOptions(allDestinationsData)
   }
 };
 
