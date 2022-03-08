@@ -31,7 +31,7 @@ const domUpdates = {
   },
 
   greetUser(currentTraveler) {
-    welcome.innerText = `Welcome, ${currentTraveler.getFirstName()}`;
+    welcome.innerText = `Welcome, ${currentTraveler.getFirstName()}!`;
   },
 
   displayTodayDate(currentDate) {
@@ -46,16 +46,16 @@ const domUpdates = {
         if (trip.destinationID === location.id) {
           let color = trip.status === "approved" ? "teal" : "pink";
           tripsList.innerHTML += `
-          <div class="card" id="${trip.id}">
+          <div class="card" tabindex="0" id="${trip.id}">
             <div class="card-header">
               <img src=${location.image} alt=${location.alt}/>
             </div>
             <div class="card-body">
-              <span class="tag tag-${color}" >status: ${trip.status}</span>
-              <h4>${location.destination}</h4>
+              <p class="tag tag-${color}" >status: ${trip.status}</p>
+              <p>${location.destination}</p>
               <p>Trip Date: ${trip.date}</p>
               <p>Travelers: ${trip.travelers}</p>
-              <p>${trip.duration} nights</p>
+              <p>Days: ${trip.duration}</p>
             </div>
           </div>`;
         }
@@ -87,6 +87,10 @@ const domUpdates = {
     inputDuration.value = '1'
     inputDate.value = 'mm/dd/yyyy'
     this.populateOptions(allDestinationsData)
+  },
+
+  showNewTripCost(newTrip, currentTraveler, allDestinationsData) {
+    currentTraveler.getNewTrip(newTrip, allDestinationsData)
   }
 };
 
