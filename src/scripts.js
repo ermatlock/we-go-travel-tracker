@@ -4,6 +4,7 @@ import {getData, postData} from "./api-calls"
 import dayjs from "dayjs";
 import domUpdates from "./dom-updates";
 import Traveler from "./Traveler";
+import Trip from "./Trip"
 
 /* ~~~~~~~~~~~~~~~~~~Image Imports~~~~~~~~~~~~~~~~~~~~~ */
 import "./images/turing-logo.png";
@@ -17,7 +18,16 @@ let allTravelersData,
 /* travelerTrips, newTripId, currentTrip, userList */
 let currentDate = dayjs().format("dddd, MMM D, YYYY");
 
-/*~~~~~~~~~~~~~~~EVENT LISTENERS~~~~~~~~~~~~~~~~~*/
+/*~~~~~~~~~~~~~~~QUERY SELECTORS~~~~~~~~~~~~~~~~~*/
+const tripForm = document.getElementById("tripForm")
+const inputDate = document.getElementById("inputDate")
+const inputDuration = document.getElementById("inputDuration")
+const inputTravelers = document.getElementById("inputTravelers")
+const inputDestination = document.getElementById("inputDestination")
+const submitTripBtn = document.getElementById("submitTripBtn")
+
+
+
 
 
 /* ~~~~~~~~~~~~~~~~~~~~~Functions~~~~~~~~~~~~~~~~~~~~~~ */
@@ -41,20 +51,46 @@ const getAllData = () => {
     allTravelersData = data[0].travelers;
     allTripsData = data[1].trips;
     allDestinationsData = data[2].destinations;
-    const id = allTravelersData[getRandomIndex(allTravelersData)].id
+    // const id = allTravelersData[getRandomIndex(allTravelersData)].id
+    const id = 2
     createTraveler(id);
     currentTraveler.getMyTrips(allTripsData)
     domUpdates.greetUser(currentTraveler);
     domUpdates.updateTravelerScr(currentTraveler, allTripsData, allDestinationsData)
     domUpdates.displayTrips(currentTraveler, allDestinationsData)
+    domUpdates.populateOptions(allDestinationsData)
 
   });
 };
 
-// const submitTrip = (currentUser) => {
+const addNewTrip = (newTrip) => {
+  currentTraveler.trips.push(newTrip)
+  console.log(currentTraveler)
+  domUpdates.updateTravelerScr(currentTraveler, allTripsData, allDestinationsData)
+  domUpdates.displayTrips(currentTraveler, allDestinationsData)
+}
+
+const submitTrip = (e) => {
+  e.preventDefault;
+  const newTrip = {
+    id: Date.now(),
+    userID: currentTraveler.id,
+    destinationID: parseInt(inputDestination.value),
+    travelers: parseInt(inputTravelers.value),
+    date: dayjs(inputDate.value).format("YYYY/MM/DD"),
+    duration: parseInt(inputDuration.value),
+    status: 'pending',
+    suggestedActivities: []
+  }
+  console.log(newTrip)
+  // currentTraveler.addNewTrip(newTrip)
+  addNewTrip(newTrip)
+  postData("trips", newTrip)
+  // domUpdates.updateTravelerScr(currentTraveler, allTripsData, allDestinationsData)
+  // domUpdates.displayTrips(currentTraveler, allDestinationsData)
+
   
-//   {id: <number>, userID: <number>, destinationID: <number>, travelers: <number>, date: <string 'YYYY/MM/DD'>, duration: <number>, status: <string 'approved' or 'pending'>, suggestedActivities: <array of strings>}
-// }
+}
 
 const loadPage = () => {
   getAllData();
@@ -62,3 +98,7 @@ const loadPage = () => {
 };
 
 window.onload = loadPage;
+
+/*~~~~~~~~~~~~~~~EVENT LISTENERS~~~~~~~~~~~~~~~~~*/
+submitTripBtn.addEventListener("click", submitTrip)
+// tripForm.addEventListener("submit", submitTrip)

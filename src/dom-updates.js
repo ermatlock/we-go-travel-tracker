@@ -6,6 +6,12 @@ const welcome = document.getElementById("welcome");
 const today = document.getElementById("today");
 const annualSpent = document.getElementById("annualSpent");
 const tripsList = document.getElementById("tripsList");
+const tripForm = document.getElementById("tripForm")
+const inputDate = document.getElementById("inputDate")
+const inputDuration = document.getElementById("inputDuration")
+const inputTravelers = document.getElementById("inputTravelers")
+const inputDestination = document.getElementById("inputDestination")
+const submitTripBtn = document.getElementById("submitTripBtn")
 
 
 /*~~~~~~~~~~~~~~~EVENT LISTENERS~~~~~~~~~~~~~~~~~*/
