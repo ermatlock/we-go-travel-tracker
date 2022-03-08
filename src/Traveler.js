@@ -33,7 +33,7 @@ class Traveler {
 
   getMyAnnualSpending(trips, destinations) {
     const year = dayjs().subtract(1, "year").format("YYYY/MM/DD");
-    this.trips = trips.filter((trip) => trip.userID === this.id);
+    // this.trips = trips.filter((trip) => trip.userID === this.id);
     const annualTrips = this.trips.filter(
       (trip) => dayjs(trip.date).format("YYYY") === dayjs().format("YYYY")
     );
@@ -56,9 +56,13 @@ class Traveler {
     return result;
   }
 
-  createTripRequest(date, duration, numTravelers, destination) {
-    const trip = new Trip(id, destinationID, travelers, date, duration)
-    return trip
+  // createTripRequest(date, duration, numTravelers, destination) {
+  //   const trip = new Trip(id, destinationID, travelers, date, duration)
+  //   return trip
+  // }
+  addNewtrip(newTrip) {
+    this.trips.push(newTrip)
+
   }
 }
 
