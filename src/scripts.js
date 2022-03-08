@@ -18,18 +18,6 @@ let allTravelersData,
 /* travelerTrips, newTripId, currentTrip, userList */
 let currentDate = dayjs().format("dddd, MMM D, YYYY");
 
-/*~~~~~~~~~~~~~~~QUERY SELECTORS~~~~~~~~~~~~~~~~~*/
-const tripForm = document.getElementById("tripForm")
-const inputDate = document.getElementById("inputDate")
-const inputDuration = document.getElementById("inputDuration")
-const inputTravelers = document.getElementById("inputTravelers")
-const inputDestination = document.getElementById("inputDestination")
-const submitTripBtn = document.getElementById("submitTripBtn")
-
-
-
-
-
 /* ~~~~~~~~~~~~~~~~~~~~~Functions~~~~~~~~~~~~~~~~~~~~~~ */
 const createTraveler = (id) => {
   currentTraveler = new Traveler(
