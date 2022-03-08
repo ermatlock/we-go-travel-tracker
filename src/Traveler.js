@@ -8,11 +8,7 @@ dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);
 
 class Traveler {
-  constructor({
-    id,
-    name,
-    travelerType
-  }) {
+  constructor({ id, name, travelerType }) {
     this.id = id || 0;
     this.name = name || "not-submitted";
     this.travelerType = travelerType || "not-submitted";
@@ -57,26 +53,23 @@ class Traveler {
   }
 
   getNewTrip(newTrip, destinations) {
-    this.pending.push(newTrip)
+    this.pending.push(newTrip);
     let subTotal = destinations.reduce((sum, location) => {
       if (newTrip.destinationID === location.id) {
         let travelersPerRoom = Math.ceil(newTrip.travelers / 2);
         let lodging =
-        location.estimatedLodgingCostPerDay *
-        travelersPerRoom *
+          location.estimatedLodgingCostPerDay *
+          travelersPerRoom *
           newTrip.duration;
         let flights =
           location.estimatedFlightCostPerPerson * 2 * newTrip.travelers;
         sum += travelersPerRoom + lodging + flights;
-        }
-
+      }
       return sum;
     }, 0);
     let result = subTotal + subTotal * 0.1;
     return result;
   }
-
 }
-
 
 export default Traveler;
