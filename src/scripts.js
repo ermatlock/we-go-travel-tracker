@@ -14,7 +14,8 @@ let allTravelersData,
   allTripsData,
   allDestinationsData,
   currentTraveler,
-  travelerData;
+  travelerData,
+  newTrip;
 const formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
   currency: "USD",
@@ -59,7 +60,7 @@ const getAllData = () => {
 
 const submitTrip = (e) => {
   e.preventDefault;
-  const newTrip = {
+  newTrip = {
     id: Date.now(),
     userID: currentTraveler.id,
     destinationID: parseInt(inputDestination.value),
@@ -76,7 +77,9 @@ const submitTrip = (e) => {
   // domUpdates.clearForm(allDestinationsData)
 };
 
-const addNewTrip = (newTrip) => {
+const addNewTrip = (e) => {
+  e.preventDefault;
+  domUpdates.hide(newTripModal)
   postData("trips", newTrip);
   currentTraveler.trips.push(newTrip);
   console.log(currentTraveler);
@@ -98,9 +101,13 @@ const loadPage = () => {
 window.onload = loadPage;
 
 /*~~~~~~~~~~~~~~~EVENT LISTENERS~~~~~~~~~~~~~~~~~*/
-// submitTripBtn.addEventListener("click", confirmTrip)
+submitTripBtn.addEventListener("click", addNewTrip)
 letsGoBtn.addEventListener("click", submitTrip);
-// tripForm.addEventListener("submit", submitTrip)
+
+cancelBtn.addEventListener("click", function() {
+  domUpdates.hide(newTripModal)
+})
+
 export {
   allTravelersData,
   allTripsData,
@@ -108,4 +115,5 @@ export {
   currentTraveler,
   formatter,
   currentDate,
+  newTrip
 };
