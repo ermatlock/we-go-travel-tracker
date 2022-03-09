@@ -40,10 +40,16 @@
     </div>
     <main>
       <!-- LOGIN FORM -->
-      <section class="log-in" id="loginPage">
-        <img class="" src="./images/wego-logo.svg" alt="wego color logo with airplane flying around globe">
-        <form name="trip" class="trip-form" id="tripForm"></form>
-        <!-- LOGIN INPUTS -->
+      <section class="login-page" id="loginPage">
+        <img class="login-logo puff-in-center" src="./images/wego-logo.svg" alt="wego color logo with airplane flying around globe">
+        <div class="form">
+          <h1 class="fade-in slogan">Wherever you want to go, we go with you!</h1>
+          <form class="login-form fade-in">
+            <input id="inputUserName" type="text" placeholder="userid" required/>
+            <input id="inputPassword" type="password" placeholder="password" required />
+            <button id="loginBtn">login</button>
+          </form>  
+        </div>
       </section>
       <!-- HEADER -->
       <header class="header hidden" tabindex="0">
@@ -53,8 +59,8 @@
         <h2 id="annualSpent"></h2>
       </header>
       <!--TRAVEL FORM  -->
-      <div class="form container hidden">
-        <section class="form-section">
+      <div class="container">
+        <section class="form-section hidden">
           <form name="trip" class="trip-form" id="tripForm">
             <label for="inputDate">Date</label>
             <input class="date" type="date" name="date" id="inputDate" />
@@ -90,8 +96,8 @@
       </div>
     </div>
     <!-- TRIPS -->
-      <div class="trips container hidden">
-        <section class="trips-section" id="tripsList">
+      <div class="trips container">
+        <section class="trips-section hidden" id="tripsList">
           <!-- populated by displayTrips() -->
         </section>
       </div>
