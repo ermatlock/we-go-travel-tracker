@@ -24,14 +24,16 @@ const inputDestination = document.getElementById("inputDestination");
 const letsGoBtn = document.getElementById("letsGoBtn");
 const submitTripBtn = document.getElementById("submitTripBtn");
 const cancelBtn = document.getElementById("cancelBtn")
+const loginPage = document.querySelector('.login-section');
+const dashboard = document.querySelector('.dashboard');
 
 /*~~~~~~~~~~~~~~~EVENT LISTENERS~~~~~~~~~~~~~~~~~*/
 span.onclick = function () {
-  domUpdates.hide(errorModal)
+  domUpdates.undisplay(errorModal)
 };
 window.onclick = function (event) {
   if (event.target == errorModal) {
-    domUpdates.hide(errorModal)
+    domUpdates.undisplay(errorModal)
   }
 };
 
@@ -41,21 +43,21 @@ const domUpdates = {
     element.style.display = "block";
   },
 
-  hide(element) {
+  undisplay(element) {
     element.style.display = "none"
   },
 
-  // show(element) {
-  //   element.classList.remove("hidden");
-  // },
+  show(element) {
+    element.classList.remove("hidden");
+  },
 
-  // hide(element) {
-  //   element.classList.add("hidden");
-  // },
+  hide(element) {
+    element.classList.add("hidden");
+  },
 
   showError(message) {
     errorMessage.innerText = message;
-    errorModal.style.display = "block";
+    display(errorModal)
   },
 
   greetUser(currentTraveler) {
@@ -143,6 +145,15 @@ const domUpdates = {
       }
     });
   },
+  loginSubmit() {
+    
+    loginPage.classList.add('hidden');
+    dashboard.classList.remove('hidden');
+  },
+
+  // invalidLogin() {
+  //   loginError.innerHTML = `Invalid login`;
+  // }
 };
 
 export default domUpdates;
