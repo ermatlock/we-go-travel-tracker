@@ -24,8 +24,13 @@ const inputDestination = document.getElementById("inputDestination");
 const letsGoBtn = document.getElementById("letsGoBtn");
 const submitTripBtn = document.getElementById("submitTripBtn");
 const cancelBtn = document.getElementById("cancelBtn")
-const loginPage = document.querySelector('.login-section');
+const loginPage = document.querySelector('.login-page');
 const dashboard = document.querySelector('.dashboard');
+const loginBtn = document.getElementById("login")
+const formSection = document.querySelector(".form-section")
+const inputUserName = document.getElementById("userName")
+const inputPassword = document.getElementById("inputPassword")
+const header = document.querySelector(".header")
 
 /*~~~~~~~~~~~~~~~EVENT LISTENERS~~~~~~~~~~~~~~~~~*/
 span.onclick = function () {
@@ -57,7 +62,7 @@ const domUpdates = {
 
   showError(message) {
     errorMessage.innerText = message;
-    display(errorModal)
+    this.display(errorModal)
   },
 
   greetUser(currentTraveler) {
@@ -146,14 +151,11 @@ const domUpdates = {
     });
   },
   loginSubmit() {
-    
-    loginPage.classList.add('hidden');
-    dashboard.classList.remove('hidden');
+    this.show(formSection)
+    this.show(tripsList)
+    this.show(header)
+    this.hide(loginPage)
   },
-
-  // invalidLogin() {
-  //   loginError.innerHTML = `Invalid login`;
-  // }
 };
 
 export default domUpdates;
