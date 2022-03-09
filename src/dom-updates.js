@@ -4,7 +4,7 @@ import {
   allDestinationsData,
   currentTraveler,
   formatter,
-  currentDate,
+  newTrip,
 } from "./scripts";
 /*~~~~~~~~~~~~~~~QUERY SELECTORS~~~~~~~~~~~~~~~~~*/
 const errorModal = document.getElementById("errorModal");
@@ -23,33 +23,33 @@ const inputTravelers = document.getElementById("inputTravelers");
 const inputDestination = document.getElementById("inputDestination");
 const letsGoBtn = document.getElementById("letsGoBtn");
 const submitTripBtn = document.getElementById("submitTripBtn");
-const cancelBtn = document.getElementById("cancelBtn")
-const loginPage = document.querySelector('.login-page');
-const dashboard = document.querySelector('.dashboard');
-const loginBtn = document.getElementById("login")
-const formSection = document.querySelector(".form-section")
-const inputUserName = document.getElementById("userName")
-const inputPassword = document.getElementById("inputPassword")
-const header = document.querySelector(".header")
+const cancelBtn = document.getElementById("cancelBtn");
+const loginPage = document.querySelector(".login-page");
+const dashboard = document.querySelector(".dashboard");
+const loginBtn = document.getElementById("login");
+const formSection = document.querySelector(".form-section");
+const inputUserName = document.getElementById("userName");
+const inputPassword = document.getElementById("inputPassword");
+const header = document.querySelector(".header");
 
 /*~~~~~~~~~~~~~~~EVENT LISTENERS~~~~~~~~~~~~~~~~~*/
 span.onclick = function () {
-  domUpdates.undisplay(errorModal)
+  domUpdates.undisplay(errorModal);
 };
 window.onclick = function (event) {
   if (event.target == errorModal) {
-    domUpdates.undisplay(errorModal)
+    domUpdates.undisplay(errorModal);
   }
 };
 
+/*~~~~~~~~~~~~~~~DOM UPDATES~~~~~~~~~~~~~~~~~*/
 const domUpdates = {
-
   display(element) {
     element.style.display = "block";
   },
 
   undisplay(element) {
-    element.style.display = "none"
+    element.style.display = "none";
   },
 
   show(element) {
@@ -62,7 +62,7 @@ const domUpdates = {
 
   showError(message) {
     errorMessage.innerText = message;
-    this.display(errorModal)
+    this.display(errorModal);
   },
 
   greetUser(currentTraveler) {
@@ -150,11 +150,12 @@ const domUpdates = {
       }
     });
   },
+
   loginSubmit() {
-    this.show(formSection)
-    this.show(tripsList)
-    this.show(header)
-    this.hide(loginPage)
+    this.show(formSection);
+    this.show(tripsList);
+    this.show(header);
+    this.hide(loginPage);
   },
 };
 
