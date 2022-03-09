@@ -19,7 +19,7 @@
         <p id="errorMessage">
           Sorry, we are having trouble retrieving or posting your data
         </p>
-        <span class="close" role="button">&times;</span>
+        <button class="close button-62" role="button" name="close dialog">&times;</button>
       </div>
     </div>
     <div id="newTripModal" tabindex="0" class="modal">
@@ -63,7 +63,7 @@
         <section class="form-section fade-in hidden">
           <form name="trip" class="trip-form" id="tripForm">
             <label for="inputDate">Date</label>
-            <input class="date" type="date" name="date" id="inputDate" />
+            <input class="date" type="date" name="setTodaysDate" id="inputDate" required/>
             <label for="inputDuration">How long is your journey?</label>
             <input
             class="number"
