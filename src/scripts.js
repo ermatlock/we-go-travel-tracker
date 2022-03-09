@@ -14,6 +14,7 @@ let allTravelersData,
   allTripsData,
   allDestinationsData,
   currentTraveler,
+  currentId,
   travelerData,
   newTrip;
 const formatter = new Intl.NumberFormat("en-US", {
@@ -34,7 +35,7 @@ const getRandomIndex = (array) => {
   return Math.floor(Math.random() * array.length);
 };
 
-const getAllData = () => {
+const getAllData = (id) => {
   Promise.all([
     getData("travelers"),
     getData("trips"),
@@ -97,13 +98,28 @@ const loadPage = () => {
   domUpdates.displayTodayDate(currentDate);
 };
 
+const getUserId = () => {
+  currentId = loginNameInput.value.slice(8);
+  verifyLogIn();
+};
+
+const verifyLogIn = () => {
+  let userLogin = loginNameInput.value.slice(0, 8);
+  if (userLogin === 'traveler' && loginPassword.value === 'travel') {
+    domUpdates.loginSubmit();
+  } else {
+    domUpdates.showError("Sorry, your user ID or password is invalid. please try again");
+  }
+};
+
+
+
 /*~~~~~~~~~~~~~~~INITIAL LOADER~~~~~~~~~~~~~~~~~*/
-window.onload = loadPage;
+window.onload = 
 
 /*~~~~~~~~~~~~~~~EVENT LISTENERS~~~~~~~~~~~~~~~~~*/
 submitTripBtn.addEventListener("click", addNewTrip)
 letsGoBtn.addEventListener("click", submitTrip);
-
 cancelBtn.addEventListener("click", function() {
   domUpdates.hide(newTripModal)
 })
