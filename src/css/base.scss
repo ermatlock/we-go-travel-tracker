@@ -79,6 +79,17 @@ label {
   margin-left: 1%;
 }
 
+.log-in {
+  background-color: #ffffff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .header-logo {
   width: 16vw;
 }
