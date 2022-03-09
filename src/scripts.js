@@ -20,6 +20,8 @@ const formatter = new Intl.NumberFormat("en-US", {
 });
 /* travelerTrips, newTripId, currentTrip, userList */
 let currentDate = dayjs().format("dddd, MMM D, YYYY");
+// let now = dayjs()
+
 
 /* ~~~~~~~~~~~~~~~~~~~~~Functions~~~~~~~~~~~~~~~~~~~~~~ */
 const createTraveler = (id) => {
@@ -112,6 +114,7 @@ export {
   allTripsData,
   allDestinationsData,
   currentTraveler,
+  currentDate,
   formatter,
-  newTrip,
+  newTrip
 };
