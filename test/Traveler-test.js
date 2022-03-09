@@ -93,12 +93,12 @@ describe("Traveler", () => {
 
   it("should have a name", () => {
     expect(traveler1.name).to.equal("Rachael Vaughten");
-    expect(traveler2.name).to.equal("name not submitted");
+    expect(traveler2.name).to.equal("not-submitted");
   });
 
   it("should have a traveler type", () => {
     expect(traveler1.travelerType).to.equal("thrill-seeker");
-    expect(traveler2.travelerType).to.equal("not selected");
+    expect(traveler2.travelerType).to.equal("not-submitted");
   });
 
   it("should have a login name", () => {
@@ -129,9 +129,31 @@ describe("Traveler", () => {
   });
 
   it("should get a total of my annual spending", () => {
+    traveler1.getMyTrips(allTrips)
+    traveler2.getMyTrips(allTrips)
     const total1 = traveler1.getMyAnnualSpending(allTrips, allDestinations);
     const total2 = traveler2.getMyAnnualSpending(allTrips, allDestinations);
     expect(total1).to.equal(19308.3);
     expect(total2).to.equal(0);
+  });
+
+  it("should get a total a new trip", () => {
+    traveler1.getMyTrips(allTrips)
+    traveler2.getMyTrips(allTrips)
+    const newTrip = {
+      id: 1646717899163,
+      userID: 2,
+      destinationID: 10,
+      travelers: 4,
+      date: "2022/03/12",
+      duration: 4,
+      status: "pending",
+      suggestedActivities: [],
+    };
+    const total1 = traveler1.getNewTrip(newTrip, allDestinations);
+    const total2 = traveler2.getNewTrip(newTrip, allDestinations);
+    expect(total1).to.equal(4754.2);
+    expect(total2).to.equal(4754.2);
+    expect(traveler1.pending).to.eql([newTrip])
   });
 });
