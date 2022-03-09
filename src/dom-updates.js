@@ -24,14 +24,21 @@ const inputDestination = document.getElementById("inputDestination");
 const letsGoBtn = document.getElementById("letsGoBtn");
 const submitTripBtn = document.getElementById("submitTripBtn");
 const cancelBtn = document.getElementById("cancelBtn")
+const loginPage = document.querySelector('.login-page');
+const dashboard = document.querySelector('.dashboard');
+const loginBtn = document.getElementById("login")
+const formSection = document.querySelector(".form-section")
+const inputUserName = document.getElementById("userName")
+const inputPassword = document.getElementById("inputPassword")
+const header = document.querySelector(".header")
 
 /*~~~~~~~~~~~~~~~EVENT LISTENERS~~~~~~~~~~~~~~~~~*/
 span.onclick = function () {
-  domUpdates.hide(errorModal)
+  domUpdates.undisplay(errorModal)
 };
 window.onclick = function (event) {
   if (event.target == errorModal) {
-    domUpdates.hide(errorModal)
+    domUpdates.undisplay(errorModal)
   }
 };
 
@@ -41,21 +48,21 @@ const domUpdates = {
     element.style.display = "block";
   },
 
-  hide(element) {
+  undisplay(element) {
     element.style.display = "none"
   },
 
-  // show(element) {
-  //   element.classList.remove("hidden");
-  // },
+  show(element) {
+    element.classList.remove("hidden");
+  },
 
-  // hide(element) {
-  //   element.classList.add("hidden");
-  // },
+  hide(element) {
+    element.classList.add("hidden");
+  },
 
   showError(message) {
     errorMessage.innerText = message;
-    errorModal.style.display = "block";
+    this.display(errorModal)
   },
 
   greetUser(currentTraveler) {
@@ -142,6 +149,12 @@ const domUpdates = {
         </div>`;
       }
     });
+  },
+  loginSubmit() {
+    this.show(formSection)
+    this.show(tripsList)
+    this.show(header)
+    this.hide(loginPage)
   },
 };
 

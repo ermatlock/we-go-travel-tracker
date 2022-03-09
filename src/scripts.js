@@ -8,7 +8,7 @@ import Trip from "./Trip";
 import MicroModal from "micromodal";
 
 /* ~~~~~~~~~~~~~~~~~~Image Imports~~~~~~~~~~~~~~~~~~~~~ */
-
+import "./images/wego-logo.svg"
 /* ~~~~~~~~~~~~~~~~~Global Variables~~~~~~~~~~~~~~~~~~~ */
 let allTravelersData,
   allTripsData,
@@ -34,7 +34,7 @@ const getRandomIndex = (array) => {
   return Math.floor(Math.random() * array.length);
 };
 
-const getAllData = () => {
+const getAllData = (id) => {
   Promise.all([
     getData("travelers"),
     getData("trips"),
@@ -43,7 +43,7 @@ const getAllData = () => {
     allTravelersData = data[0].travelers;
     allTripsData = data[1].trips;
     allDestinationsData = data[2].destinations;
-    const id = allTravelersData[getRandomIndex(allTravelersData)].id;
+    // const id = allTravelersData[getRandomIndex(allTravelersData)].id;
     // const id = 2
     createTraveler(id);
     currentTraveler.getMyTrips(allTripsData);
@@ -97,16 +97,40 @@ const loadPage = () => {
   domUpdates.displayTodayDate(currentDate);
 };
 
+// const getUserId = (e) => {
+//   e.preventDefault
+//   const currentId = loginNameInput.value.slice(8);
+//   verifyLogIn(currentId);
+// };
+
+const verifyLogIn = (e) => {
+  e.preventDefault();
+  let userLogin = inputUserName.value.slice(0, 8);
+  let currentId = inputUserName.value.slice(8);
+  console.log("userlogin", userLogin, "currentID", currentId, "inputPassword", )
+  if (userLogin === 'traveler' && inputPassword.value === 'travel') {
+    domUpdates.loginSubmit();
+    getAllData(parseInt(currentId));
+    domUpdates.displayTodayDate(currentDate);
+  } else {
+    domUpdates.showError("Sorry, your user ID or password is invalid. please try again");
+    inputUserName.value = ""
+    inputPassword.value = ""
+  }
+};
+
+
+
 /*~~~~~~~~~~~~~~~INITIAL LOADER~~~~~~~~~~~~~~~~~*/
-window.onload = loadPage;
+
 
 /*~~~~~~~~~~~~~~~EVENT LISTENERS~~~~~~~~~~~~~~~~~*/
 submitTripBtn.addEventListener("click", addNewTrip)
 letsGoBtn.addEventListener("click", submitTrip);
-
 cancelBtn.addEventListener("click", function() {
   domUpdates.hide(newTripModal)
 })
+loginBtn.addEventListener("click", verifyLogIn)
 
 export {
   allTravelersData,

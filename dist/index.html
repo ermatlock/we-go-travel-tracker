@@ -13,62 +13,77 @@
     <title>we•go</title>
   </head>
   <body>
+    <!-- MODALS -->
+    <div id="errorModal" tabindex="0" class="modal">
+      <div class="modal-content" role="dialog" aria-modal="true">
+        <p id="errorMessage">
+          Sorry, we are having trouble retrieving or posting your data
+        </p>
+        <span class="close" role="button">&times;</span>
+      </div>
+    </div>
+    <div id="newTripModal" tabindex="0" class="modal">
+      <div class="modal-content new-trip" role="dialog" aria-modal="true">
+        <p id="newTripMessage">
+          You are almost ready! Please confirm your reservation.
+        </p>
+        <div id="newTripContent"></div>
+        <div class="modal-button-row">
+          <button class="button-62" type="submit" aria-label="confirm booking for selected trip" id="submitTripBtn">
+            Confirm!
+          </button>
+          <button class="button-62" type="button" aria-label="cancel booking for selected trip" id="cancelBtn">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
     <main>
-      <div id="errorModal" tabindex="0" class="modal">
-        <div class="modal-content" role="dialog" aria-modal="true">
-          <p id="errorMessage">
-            Sorry, we are having trouble posting your data
-          </p>
-          <span class="close" role="button">&times;</span>
+      <!-- LOGIN FORM -->
+      <section class="login-page" id="loginPage">
+        <img class="login-logo puff-in-center" src="./images/wego-logo.svg" alt="wego color logo with airplane flying around globe">
+        <div class="form">
+          <h1 class="fade-in slogan">Wherever you want to go, we go with you!</h1>
+          <form class="login-form fade-in">
+            <input id="inputUserName" type="text" placeholder="userid" required/>
+            <input id="inputPassword" type="password" placeholder="password" required />
+            <button id="loginBtn">login</button>
+          </form>  
         </div>
-      </div>
-      <div id="newTripModal" tabindex="0" class="modal">
-        <div class="modal-content new-trip" role="dialog" aria-modal="true">
-          <p id="newTripMessage">
-            You are almost ready! Please confirm your reservation.
-          </p>
-          <div id="newTripContent"></div>
-          <div class="modal-button-row">
-            <button class="button-62" type="submit" id="submitTripBtn">
-              Confirm!
-            </button>
-            <button class="button-62" type="button" id="cancelBtn">
-              Cancel
-            </button>
-          </div>
-        </div>
-      </div>
-      <header tabindex="0">
+      </section>
+      <!-- HEADER -->
+      <header class="header hidden" tabindex="0">
+        <img class="header-logo" src="./images/wego-logo.svg" alt="wego color logo with airplane flying around globe">
         <h1 id="welcome"></h1>
         <h1 id="today"></h1>
         <h2 id="annualSpent"></h2>
       </header>
-
+      <!--TRAVEL FORM  -->
       <div class="container">
-        <section class="form-section">
+        <section class="form-section hidden">
           <form name="trip" class="trip-form" id="tripForm">
             <label for="inputDate">Date</label>
             <input class="date" type="date" name="date" id="inputDate" />
             <label for="inputDuration">How long is your journey?</label>
             <input
-              class="number"
-              type="number"
-              value="1"
-              min="1"
-              name="number-days"
-              id="inputDuration"
+            class="number"
+            type="number"
+            value="1"
+            min="1"
+            name="number-days"
+            id="inputDuration"
             />
             <label for="inputTravelers">How many travelers?</label>
             <input
-              class="number"
-              type="number"
-              value="1"
-              min="1"
-              name="number-travelers"
-              id="inputTravelers"
+            class="number"
+            type="number"
+            value="1"
+            min="1"
+            name="number-travelers"
+            id="inputTravelers"
             />
             <label class="hidden" for="inputDestination"
-              >What is your destination?</label
+            >What is your destination?</label
             >
             <select class="dest" name="destination" id="inputDestination">
               <!-- populated by populateOptions() -->
@@ -79,8 +94,10 @@
           </button>
         </section>
       </div>
-      <div class="container">
-        <section class="trips-section" id="tripsList">
+    </div>
+    <!-- TRIPS -->
+      <div class="trips container">
+        <section class="trips-section hidden" id="tripsList">
           <!-- populated by displayTrips() -->
         </section>
       </div>
