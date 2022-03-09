@@ -8,7 +8,7 @@ import Trip from "./Trip";
 import MicroModal from "micromodal";
 
 /* ~~~~~~~~~~~~~~~~~~Image Imports~~~~~~~~~~~~~~~~~~~~~ */
-
+import "./images/wego-logo.svg"
 /* ~~~~~~~~~~~~~~~~~Global Variables~~~~~~~~~~~~~~~~~~~ */
 let allTravelersData,
   allTripsData,
