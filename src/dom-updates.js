@@ -5,8 +5,7 @@ import {
   currentTraveler,
   currentDate,
   formatter,
-  newTrip,
-  // now
+  newTrip
 } from "./scripts";
 /*~~~~~~~~~~~~~~~QUERY SELECTORS~~~~~~~~~~~~~~~~~*/
 const errorModal = document.getElementById("errorModal");
