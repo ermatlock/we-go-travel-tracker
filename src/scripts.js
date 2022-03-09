@@ -4,17 +4,15 @@ import { getData, postData } from "./api-calls";
 import dayjs from "dayjs";
 import domUpdates from "./dom-updates";
 import Traveler from "./Traveler";
-import Trip from "./Trip";
-import MicroModal from "micromodal";
 
 /* ~~~~~~~~~~~~~~~~~~Image Imports~~~~~~~~~~~~~~~~~~~~~ */
-import "./images/wego-logo.svg"
+import "./images/wego-logo.svg";
+
 /* ~~~~~~~~~~~~~~~~~Global Variables~~~~~~~~~~~~~~~~~~~ */
 let allTravelersData,
   allTripsData,
   allDestinationsData,
   currentTraveler,
-  travelerData,
   newTrip;
 const formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -30,10 +28,6 @@ const createTraveler = (id) => {
   );
 };
 
-const getRandomIndex = (array) => {
-  return Math.floor(Math.random() * array.length);
-};
-
 const getAllData = (id) => {
   Promise.all([
     getData("travelers"),
@@ -43,8 +37,6 @@ const getAllData = (id) => {
     allTravelersData = data[0].travelers;
     allTripsData = data[1].trips;
     allDestinationsData = data[2].destinations;
-    // const id = allTravelersData[getRandomIndex(allTravelersData)].id;
-    // const id = 2
     createTraveler(id);
     currentTraveler.getMyTrips(allTripsData);
     domUpdates.greetUser(currentTraveler);
@@ -58,31 +50,29 @@ const getAllData = (id) => {
   });
 };
 
-const submitTrip = (e) => {
-  e.preventDefault;
-  newTrip = {
-    id: Date.now(),
-    userID: currentTraveler.id,
-    destinationID: parseInt(inputDestination.value),
-    travelers: parseInt(inputTravelers.value),
-    date: dayjs(inputDate.value).format("YYYY/MM/DD"),
-    duration: parseInt(inputDuration.value),
-    status: "pending",
-    suggestedActivities: [],
-  };
-
-  domUpdates.showNewTripRequest(newTrip, allDestinationsData);
-
-  // addNewTrip(newTrip)
-  // domUpdates.clearForm(allDestinationsData)
+const submitTrip = () => {
+  if (!inputDate.value || !inputDestination.value) {
+    domUpdates.showError("Please enter all information before continuing");
+  } else {
+    newTrip = {
+      id: Date.now(),
+      userID: currentTraveler.id,
+      destinationID: parseInt(inputDestination.value),
+      travelers: parseInt(inputTravelers.value),
+      date: dayjs(inputDate.value).format("YYYY/MM/DD"),
+      duration: parseInt(inputDuration.value),
+      status: "pending",
+      suggestedActivities: [],
+    };
+    domUpdates.showNewTripRequest(newTrip, allDestinationsData);
+  }
 };
 
 const addNewTrip = (e) => {
   e.preventDefault;
-  domUpdates.hide(newTripModal)
+  domUpdates.hide(newTripModal);
   postData("trips", newTrip);
   currentTraveler.trips.push(newTrip);
-  console.log(currentTraveler);
   domUpdates.updateTravelerScr(
     currentTraveler,
     allTripsData,
@@ -92,45 +82,30 @@ const addNewTrip = (e) => {
   domUpdates.showNewTripCost(newTrip, currentTraveler, allDestinationsData);
 };
 
-const loadPage = () => {
-  getAllData();
-  domUpdates.displayTodayDate(currentDate);
-};
-
-// const getUserId = (e) => {
-//   e.preventDefault
-//   const currentId = loginNameInput.value.slice(8);
-//   verifyLogIn(currentId);
-// };
-
 const verifyLogIn = (e) => {
   e.preventDefault();
   let userLogin = inputUserName.value.slice(0, 8);
   let currentId = inputUserName.value.slice(8);
-  console.log("userlogin", userLogin, "currentID", currentId, "inputPassword", )
-  if (userLogin === 'traveler' && inputPassword.value === 'travel') {
+  if (userLogin === "traveler" && inputPassword.value === "travel") {
     domUpdates.loginSubmit();
     getAllData(parseInt(currentId));
     domUpdates.displayTodayDate(currentDate);
   } else {
-    domUpdates.showError("Sorry, your user ID or password is invalid. please try again");
-    inputUserName.value = ""
-    inputPassword.value = ""
+    domUpdates.showError(
+      "Sorry, your user ID or password is invalid. please try again"
+    );
+    inputUserName.value = "";
+    inputPassword.value = "";
   }
 };
 
-
-
-/*~~~~~~~~~~~~~~~INITIAL LOADER~~~~~~~~~~~~~~~~~*/
-
-
 /*~~~~~~~~~~~~~~~EVENT LISTENERS~~~~~~~~~~~~~~~~~*/
-submitTripBtn.addEventListener("click", addNewTrip)
+submitTripBtn.addEventListener("click", addNewTrip);
 letsGoBtn.addEventListener("click", submitTrip);
-cancelBtn.addEventListener("click", function() {
-  domUpdates.hide(newTripModal)
-})
-loginBtn.addEventListener("click", verifyLogIn)
+cancelBtn.addEventListener("click", function () {
+  domUpdates.undisplay(newTripModal);
+});
+loginBtn.addEventListener("click", verifyLogIn);
 
 export {
   allTravelersData,
@@ -138,6 +113,5 @@ export {
   allDestinationsData,
   currentTraveler,
   formatter,
-  currentDate,
-  newTrip
+  newTrip,
 };
