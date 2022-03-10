@@ -52,20 +52,19 @@
         <div class="form">
           <h1 class="fade-in slogan">Wherever you want to go, we go with you!</h1>
           <form class="login-form fade-in">
-            <input id="inputUserName" type="text" placeholder="userid" required/>
-            <input id="inputPassword" type="password" placeholder="password" required />
+            <input id="inputUserName" type="text" value="" placeholder="user id" required/>
+            <input id="inputPassword" type="password" value="" placeholder="password" required />
             <button id="loginBtn">login</button>
           </form>  
         </div>
       </section>
       <!-- HEADER -->
-      <header class="header puff-in-center hidden" tabindex="0">
+      <header class="header sticky puff-in-center hidden" tabindex="0">
         <img class="header-logo" src="./images/wego-logo.svg" alt="wego color logo with airplane flying around globe">
         <h1 id="welcome"></h1>
         <h1 id="today"></h1>
         <h2 id="annualSpent"></h2>
       </header>
-      <!--TRAVEL FORM  -->
       <div class="container">
         <section class="form-section fade-in hidden">
           <form name="trip" class="trip-form" id="tripForm">
@@ -100,10 +99,11 @@
             Let's Go!
           </button>
         </section>
-      </div>
+      <!-- </div> -->
     </div>
+      <!--TRAVEL FORM  -->
     <!-- TRIPS -->
-      <div class="trips container">
+      <div class="trips container scroll">
         <section class="trips-section fade-in hidden" id="tripsList">
           <!-- populated by displayTrips() -->
         </section>
