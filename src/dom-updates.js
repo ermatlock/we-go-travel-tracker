@@ -122,7 +122,7 @@ const domUpdates = {
   clearForm(allDestinationsData) {
     inputTravelers.value = "1";
     inputDuration.value = "1";
-    inputDate.value = "mm/dd/yyyy";
+    inputDate.value = "";
     this.populateOptions(allDestinationsData);
   },
 
