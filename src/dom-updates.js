@@ -3,8 +3,9 @@ import {
   allTripsData,
   allDestinationsData,
   currentTraveler,
+  currentDate,
   formatter,
-  newTrip,
+  newTrip
 } from "./scripts";
 /*~~~~~~~~~~~~~~~QUERY SELECTORS~~~~~~~~~~~~~~~~~*/
 const errorModal = document.getElementById("errorModal");
@@ -17,7 +18,7 @@ const today = document.getElementById("today");
 const annualSpent = document.getElementById("annualSpent");
 const tripsList = document.getElementById("tripsList");
 const tripForm = document.getElementById("tripForm");
-const inputDate = document.getElementById("inputDate");
+const inputDate = document.getElementById("inputDate")
 const inputDuration = document.getElementById("inputDuration");
 const inputTravelers = document.getElementById("inputTravelers");
 const inputDestination = document.getElementById("inputDestination");
@@ -31,6 +32,8 @@ const formSection = document.querySelector(".form-section");
 const inputUserName = document.getElementById("userName");
 const inputPassword = document.getElementById("inputPassword");
 const header = document.querySelector(".header");
+let now = new Date().toISOString().split('T')[0];
+document.getElementsByName("setTodaysDate")[0].setAttribute('min', now);
 
 /*~~~~~~~~~~~~~~~EVENT LISTENERS~~~~~~~~~~~~~~~~~*/
 span.onclick = function () {
@@ -119,7 +122,7 @@ const domUpdates = {
   clearForm(allDestinationsData) {
     inputTravelers.value = "1";
     inputDuration.value = "1";
-    inputDate.value = "mm/dd/yyyy";
+    inputDate.value = "";
     this.populateOptions(allDestinationsData);
   },
 

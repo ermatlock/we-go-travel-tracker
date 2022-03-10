@@ -1,10 +1,15 @@
 # WE•GO Travel Tracker
 ## Final Mod 2 Solo Project
 ## Project Overview
-WE•GO is a fictional travel site where the user can explore and book travel destinations. Through an inviting interface the user is able to also track past travel expenses and create new bookings.
+WE•GO is a fictional travel site where the user can explore and book travel destinations. Through an inviting interface the user is able to:
+- Track past travel expenses
+- Create new bookings
 
 #### Objective:
-To utilize test-driven design principles, API post and fetch calls, and npm packages to enhance the functionality and user experience.
+- Utilize OOP and test-driven design principles
+- API post and fetch calls
+- Utilize npm packages to enhance the functionality and user experience.
+- 100% Lighthouse Score for accessibility.
 ## Instructions
 
 To download the repository:
@@ -31,7 +36,7 @@ The user will be greeted with a login screen upon load.
 ![Main Screen](https://media.giphy.com/media/UTlpg2pLAQbudJX2RC/giphy.gif)
 
 Log in using 
-`username: traveler2` (or any user number up to 50)
+`username: traveler2` (or any user number between 1 and 50)
 `password: travel`
 
 ![Login](https://media.giphy.com/media/zPW7NxisbBru32onNG/giphy.gif)

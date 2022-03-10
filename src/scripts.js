@@ -20,6 +20,8 @@ const formatter = new Intl.NumberFormat("en-US", {
 });
 /* travelerTrips, newTripId, currentTrip, userList */
 let currentDate = dayjs().format("dddd, MMM D, YYYY");
+// let now = dayjs()
+
 
 /* ~~~~~~~~~~~~~~~~~~~~~Functions~~~~~~~~~~~~~~~~~~~~~~ */
 const createTraveler = (id) => {
@@ -53,6 +55,8 @@ const getAllData = (id) => {
 const submitTrip = () => {
   if (!inputDate.value || !inputDestination.value) {
     domUpdates.showError("Please enter all information before continuing");
+  } else if (parseInt(inputTravelers.value) < 1 || parseInt(inputDuration.value) < 1) {
+    domUpdates.showError("Please enter a number greater than zero");
   } else {
     newTrip = {
       id: Date.now(),
@@ -80,6 +84,7 @@ const addNewTrip = (e) => {
   );
   domUpdates.displayTrips(currentTraveler, allDestinationsData);
   domUpdates.showNewTripCost(newTrip, currentTraveler, allDestinationsData);
+  domUpdates.clearForm(allDestinationsData)
 };
 
 const verifyLogIn = (e) => {
@@ -112,6 +117,7 @@ export {
   allTripsData,
   allDestinationsData,
   currentTraveler,
+  currentDate,
   formatter,
-  newTrip,
+  newTrip
 };
