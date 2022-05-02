@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>we•go</title>
+  </head>
+  <body>
+    <!-- MODALS -->
+    <div id="errorModal" tabindex="0" class="modal">
+      <div class="modal-content" role="dialog" aria-modal="true">
+        <p id="errorMessage">
+          Sorry, we are having trouble retrieving or posting your data
+        </p>
+        <button class="close button-62" role="button" name="close dialog">&times;</button>
+      </div>
+    </div>
+    <div id="newTripModal" tabindex="0" class="modal">
+      <div class="modal-content new-trip" role="dialog" aria-modal="true">
+        <p id="newTripMessage">
+          You are almost ready! Please confirm your reservation.
+        </p>
+        <div id="newTripContent"></div>
+        <div class="modal-button-row">
+          <button class="button-62" type="submit" aria-label="confirm booking for selected trip" id="submitTripBtn">
+            Confirm!
+          </button>
+          <button class="button-62" type="button" aria-label="cancel booking for selected trip" id="cancelBtn">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+    <main>
+      <!-- LOGIN FORM -->
+      <section class="login-page" id="loginPage">
+        <img class="login-logo puff-in-center" src="./images/wego-logo.svg" alt="wego color logo with airplane flying around globe">
+        <div class="form">
+          <h1 class="fade-in slogan">Wherever you want to go, we go with you!</h1>
+          <form class="login-form fade-in">
+            <input id="inputUserName" type="text" value="" placeholder="user id" required/>
+            <input id="inputPassword" type="password" value="" placeholder="password" required />
+            <button id="loginBtn">login</button>
+          </form>  
+        </div>
+      </section>
+      <!-- HEADER -->
+      <header class="header sticky puff-in-center hidden" tabindex="0">
+        <img class="header-logo" src="./images/wego-logo.svg" alt="wego color logo with airplane flying around globe">
+        <h1 id="welcome"></h1>
+        <h1 id="today"></h1>
+        <h2 id="annualSpent"></h2>
+      </header>
+      <div class="container">
+        <section class="form-section fade-in hidden">
+          <form name="trip" class="trip-form" id="tripForm">
+            <label for="inputDate">Date</label>
+            <input class="date" type="date" name="setTodaysDate" id="inputDate" required/>
+            <label for="inputDuration">How long is your journey?</label>
+            <input
+            class="number"
+            type="number"
+            value="1"
+            min="1"
+            name="number-days"
+            id="inputDuration"
+            />
+            <label for="inputTravelers">How many travelers?</label>
+            <input
+            class="number"
+            type="number"
+            value="1"
+            min="1"
+            name="number-travelers"
+            id="inputTravelers"
+            />
+            <label class="hidden" for="inputDestination"
+            >What is your destination?</label
+            >
+            <select class="dest" name="destination" id="inputDestination">
+              <!-- populated by populateOptions() -->
+            </select>
+          </form>
+          <button class="button-62" role="button" type="button" id="letsGoBtn">
+            Let's Go!
+          </button>
+        </section>
+      <!-- </div> -->
+    </div>
+      <!--TRAVEL FORM  -->
+    <!-- TRIPS -->
+      <div class="trips container scroll">
+        <section class="trips-section fade-in hidden" id="tripsList">
+          <!-- populated by displayTrips() -->
+        </section>
+      </div>
+    </main>
+    <script src="bundle.js"></script>
+  </body>
+</html>
