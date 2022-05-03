@@ -12,6 +12,15 @@ WE•GO is a fictional travel site where the user can explore and book travel de
 - 100% Lighthouse Score for accessibility.
 ## Instructions
 
+The deployed site is [here!](https://ermatlock.github.io/we-go-travel-tracker/) You will still need to download and run the local server before you will see the fully functional site.
+
+To set up the local API server:
+- Clone the [repository](https://github.com/turingschool-examples/travel-tracker-api) to your local machine
+- `cd` into the repo
+- Then install the library dependencies. Run:
+`npm install`, then `npm start`
+
+
 To download the repository:
 - Clone the [repository](https://github.com/ermatlock/we-go-travel-tracker) to your local machine
 - `cd` into the project
@@ -21,7 +30,7 @@ To download the repository:
 npm install
 ```
 
-To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see a page with some `h1` text, Turing logo image and a beautiful gradient background. If that's the case, you're good to go. Enter `control + c` in your terminal to stop the server at any time.
+Run `npm start` in your terminal. Go to `http://localhost:8080/` You should see the site! To stop the server at any time, enter `control + c` in your terminal.
 
 You will also need to set up a local API server:
 - Clone the [repository](https://github.com/turingschool-examples/travel-tracker-api) to your local machine
